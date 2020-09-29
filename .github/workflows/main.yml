@@ -20,19 +20,15 @@ jobs:
     - run: sudo service xvfb start
     - run: yarn install
     - run: DISPLAY=:10 yarn test
-
-# jobs:
-#   build:
-#     runs-on: ${{ matrix.os }}
-#     strategy:
-#       matrix:
-#         os: [macos-latest, ubuntu-latest, windows-latest]
-#         node: [12.14.1] # matches Electron 9.x
-#     steps:
-#     - uses: actions/checkout@v2
-#     - name: Use Node.js ${{ matrix.node-version }}
-#       uses: actions/setup-node@v1
-#       with:
-#         node-version: ${{ matrix.node-version }}
-#     - run: yarn install
-#     - run: yarn test
+  windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - run: yarn install
+    - run: yarn test
+  macOS:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - run: yarn install
+    - run: yarn test
