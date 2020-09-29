@@ -19,7 +19,7 @@ jobs:
     - run: sudo update-rc.d xvfb defaults
     - run: sudo service xvfb start
     - run: yarn install
-    - run: yarn test
+    - run: DISPLAY=:10 yarn test
 
 # jobs:
 #   build:
